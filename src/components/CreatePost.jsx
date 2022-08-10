@@ -41,7 +41,7 @@ export default function CreatePost() {
           external_url: null,
           image: null,
           imageMimeType: null,
-          name: caption,
+          name: "post by @",
           attributes: [],
           media: [
              {
@@ -151,9 +151,9 @@ export default function CreatePost() {
          </Flex>
        
        
-         <Text>{account}</Text>
+      
          
-        <Button onClick={toggleColorMode}>change color mode</Button>
+        
         </Box>
   )
 }
