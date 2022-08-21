@@ -18,7 +18,7 @@
     "flair-sdk": "^0.102.1",
     "framer-motion": "^6.5.1",
     "graphql": "^16.5.0",
-    "ipfs-http-client": "^57.0.3",
+    
     "lens-protocol": "^0.1.4",
     "moment": "^2.29.4",
     "moralis": "^1.9.0",

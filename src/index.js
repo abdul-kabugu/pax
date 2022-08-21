@@ -10,7 +10,10 @@ import {apolloClient} from './GRAPHQL/Authentication/appoloClient'
 import { configureChains, chain } from 'wagmi'
 import { publicProvider } from 'wagmi/providers/public'
 import {BrowserRouter} from 'react-router-dom'
-import {theme} from './theme'
+//import {theme} from './theme'
+//import { theme } from './theme';
+import theme from './theme';
+
 import {NotificationProvider} from 'web3uikit'
 
 
