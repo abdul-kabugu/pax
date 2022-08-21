@@ -1,38 +1,126 @@
-import React, {useRef, useState} from 'react'
+import { Avatar, Box, Button, Container, IconButton, Text } from '@chakra-ui/react'
+import React, {useRef, useState, useEffect} from 'react'
 import '../global-style.css'
 import VideoFooter from './VideoFooter'
 import VideoHeader from './VideoHeader'
 import VideoSidebar from './VideoSidebar'
-export default function Video() {
+import {fakeVideoData} from '../fakeVideos'
+import ReactPlayer from 'react-player/lazy'
+import { FaPause, FaPlay } from 'react-icons/fa'
+export default function Video({data}) {
   const [isPlaying, setisPlaying] = useState(false)
-  const videoRef = useRef(null)
-  const onVideoPlay = () =>  {
-    if(isPlaying){
-      videoRef.current.pause()
-      setisPlaying(false)
-    } else {
-     videoRef.current.play()
-     setisPlaying(true)
+  
+  
+ const videoRef = useRef([]);
+ useEffect(() => {
+  videoRef.current = videoRef.current.slice(0, fakeVideoData.length);
+    
+}, [data]);
+  
+  
+const onVideoPlay = (i) =>  {
+    
+    if(isPlaying) {
+        videoRef.current[i].pause()
+        setisPlaying(false)
+        
+      } else {
+        
+        setisPlaying(false)
+        videoRef.current[i].play()
+        
+        setisPlaying(true)
+       
+      } 
+      console.log("this  is  my id", i) 
     }
-    
-  }
+   
   return (
-    <div className='postContainer'>
-    
-      {/*<div className='video-header'>this  is  the  video  header components</div>*/}
-      <VideoHeader />
-      <div className='video_container'>
-      <div className='video'>
+    <Box ml={10}>
+     
+      {fakeVideoData.map((post, i) => {
+       // const mediaUrl = post.metadata.media.map((post, i))
+       // console.log("this is post url", mediaUrl)
+      return(
+        <div key={i}>
+      <Box w="100%"   display="flex">
+        
+        <Box py={3}> <Avatar     name='abdul'   size="lg"/> </Box>
+        <Box ml={5} width="90%" py={3}>
+        <Box display="flex" justifyContent="space-between" width="100%">
+          <Box display="flex" mb={0}>
+           <Text fontWeight="black" mr={5}>{post.creatorHandle} </Text> <Text as="u">{post.creator}</Text> 
+           </Box>
+            <Box pr={3} mb={0}>
+              <Button colorScheme="blue">Follow</Button>
+            </Box>
+           </Box>
+        <Box w="70%" mt={0}>
+          <Text>{post.caption}</Text>
+        </Box>
+        </Box>
+      </Box>
+     
+
+        
+        
+          <Box w="370px"  ml={24} display="flex" justifyContent="space-between" style={{position: "relative"}} >
+           
+            <video src={post.media}  loop style = {{width: "270px", height: "480px", borderRadius:"14px"}}
+                ref={el => videoRef.current[i] = el} 
+            ></video>
+             <VideoSidebar  />
+            
+             </Box>
+          <Box style={{position : "relative", bottom: "80px", left: "120px"}}> 
+             {isPlaying ? (
+              <IconButton       icon={<FaPause color='white'/>}  onClick={() => onVideoPlay(i)}  colorScheme="blackAlpha"/>
+             ):
+             <IconButton   icon={<FaPlay color='white'/>}   onClick={() => onVideoPlay(i)}  colorScheme="blackAlpha"/>
+             }
+          
+          </Box>
+          
       
-      <video src='https://v16-webapp.tiktok.com/591f49a804570e57811059c3977e8ccd/62f41a98/video/tos/useast2a/tos-useast2a-pve-0068/ff9f282540c84e0287e1a35a1e820e99/?a=1988&ch=0&cr=0&dr=0&lr=tiktok_m&cd=0%7C0%7C1%7C0&cv=1&br=1036&bt=518&btag=80000&cs=0&ds=3&ft=gKSYZ8peo0PD11E3-sg9wtX2O5LiaQ2D~g4&mime_type=video_mp4&qs=0&rc=Zjw7Mzo1NTY5N2U4ZzU6aUBpM3NzZzo6ZjloZTMzNzczM0BfNTY0Xi1jNTYxMC40Yy9eYSNhLW9scjRnZF9gLS1kMTZzcw%3D%3D&l=202208101449370102230731460021023D' className='video_player'
-        loop
-        ref={videoRef}
-        onClick={onVideoPlay}
-      ></video>
-      <VideoFooter isPlaying = {isPlaying} setisPlaying = {setisPlaying} togglePlay ={onVideoPlay}/>
-     </div>
-     <VideoSidebar />
-    </div>
-    </div>
+      </div>
+      )
+      })
+        
+}
+    </Box>
   )
 }
+
+/*<div className='postContainer'>
+  
+  {data?.explorePublications.items.map((post, i) => (
+    <div key={i}>
+       <VideoHeader profilePic = {post.profile.picture.original.url}
+         profileHandle = {post.profile.handle} postCaptions ={post.metadata.content}
+       />
+    {post.metadata.media.map((media, i) => {
+      
+        
+        return(
+          <div className='video_container' key={i}>
+          <div className='video'>
+           
+             <video key={i} src={media.original.url} className='video_player'
+             loop
+             ref={(element) => videoRef.current.push(element)}
+             
+             onClick={onVideoPlay}
+           ></video>
+     <VideoFooter isPlaying = {isPlaying} setisPlaying = {setisPlaying} togglePlay ={onVideoPlay}/>
+         </div>
+         <VideoSidebar post ={post}/>
+         </div> 
+        )
+      })}
+          
+        
+    </div>
+  ))}
+  
+   </div>*/
+          

@@ -1,16 +1,9 @@
-import  {gql} from '@apollo/client'
-import {apolloClient} from "../Authentication/appoloClient"
+import {apolloClient} from '../Authentication/appoloClient'
+import {gql}  from '@apollo/client'
 
-  export const EXPLORE_PUBLICATIONS = gql`
-  query{
-  explorePublications(request: {
-    sortCriteria: TOP_COMMENTED,
-    publicationTypes: [POST, MIRROR],
-    
-    sources : ["pax423"]
-    limit: 20
-  }) {
-    
+  export   const GET_USER_PUBLICATIONS = gql`
+  query($request: PublicationsQueryRequest!) {
+    publications(request: $request) {
       items {
         __typename 
         ... on Post {
@@ -32,8 +25,6 @@ import {apolloClient} from "../Authentication/appoloClient"
   }
   fragment MediaFields on Media {
     url
-    width
-    height
     mimeType
   }
   fragment ProfileFields on Profile {
@@ -63,12 +54,6 @@ import {apolloClient} from "../Authentication/appoloClient"
         original {
           ...MediaFields
         }
-        small {
-          ...MediaFields
-        }
-        medium {
-          ...MediaFields
-        }
       }
     }
     coverPicture {
@@ -80,12 +65,6 @@ import {apolloClient} from "../Authentication/appoloClient"
       }
       ... on MediaSet {
         original {
-          ...MediaFields
-        }
-        small {
-         ...MediaFields
-        }
-        medium {
           ...MediaFields
         }
       }
@@ -136,12 +115,6 @@ import {apolloClient} from "../Authentication/appoloClient"
     content
     media {
       original {
-        ...MediaFields
-      }
-      small {
-        ...MediaFields
-      }
-      medium {
         ...MediaFields
       }
     }
@@ -334,15 +307,4 @@ import {apolloClient} from "../Authentication/appoloClient"
       }
     }
   }
-`; 
-
-
-
-const explorePublications = (explorePublicationQueryRequest) => {
-    return apolloClient.query({
-      query: gql(EXPLORE_PUBLICATIONS),
-      variables: {
-        request: explorePublicationQueryRequest,
-      },
-    });
-  };
+`;

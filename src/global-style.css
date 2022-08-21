@@ -2,21 +2,38 @@ html{
     /*scroll-snap-type: y mandatory;*/
 }
 
+
 .home-container{
    display: flex; 
    width: 90%;
    margin: 0 auto;
    max-width: 1200px;
-   margin-top: 20px;
+   margin-top: 10px;
+}
+.user_page_container {
+    display: flex; 
+    margin: 0 auto;
+    max-width: 1200px;
+    margin-top: 10px;
 }
 .home-left{
-    
+    height: 80vh;
     width: 40%;
+    
 
+}
+.user_page_left{
+    height: 80vh;
+    width: 40%;  
+}
+.home-leftSideBar {
+    height: 60vh;
+    overflow-y: hidden;
+    width: 100%;
 }
 .app_vidos{
     position: relative;
-    height: 800px;
+    height: 500px;
     overflow: scroll;
     width: 85%;
     /*scroll-snap-type: y mandatory;*/
@@ -34,9 +51,10 @@ html{
     width: 100%;
     margin: 0 auto;
     max-width: 800px;
-    
+    height: 100vh;
     
     margin-left: 50px;
+    
 }
 /*.video-header{
     width: 100%;
@@ -48,29 +66,34 @@ html{
    
    
     
-    padding: 10px  6px;
-    padding-top: 6px;
+    padding:   6px;
+    
    
 }
 .video-header-top{
     width: 100%;
     display: flex;
     justify-content: space-between;
-    padding: 5px;
+    padding: 2px 5px;
 }
 .video-caption-container{
+   /* width: 90%;
+    padding: 1px 5px;
+    margin-left: 70px;*/
+    
     width: 90%;
-    padding: 5px;
-    margin-left: 70px;
+    margin-bottom: 0;
 }
 .user-data{
     display: flex;
-    width: 35%;
+    width: 100%;
     justify-content: space-between;
     align-items: flex-start;
     min-width: 250px;
+    margin-bottom: 0;
 }
 .caption-container{
+    margin-top: 0;
     width: 70%;
     
 }
@@ -107,10 +130,19 @@ html{
 
 }
 .video_sidebar_container{
-  margin-top: 50%;
-  padding-right: 7px;
+  margin-top: 30%;
+  padding-right: 5px;
 }
 .side_bar_button{
     padding: 5px;
     margin-bottom: 10px;
+}
+.video-element {
+    width: 235px;
+    height: 312px ;
+    transition: transform 1.7s;
+    
+}
+.video-element :hover{
+    transform: scale(1.01); 
 }

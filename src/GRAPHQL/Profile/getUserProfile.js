@@ -1,8 +1,9 @@
-import { gql} from '@apollo/client'
+import {apolloClient} from '../Authentication/appoloClient'
+import {gql} from '@apollo/client'
 
-export const GET_PROFILE = gql`
-query Profile {
-    profile(request: { profileId: "0x41cd" }) {
+export const GET_USER_PROFILES = gql`
+query($request: SingleProfileQueryRequest!) {
+  profile(request: $request) {
       id
       name
       bio
@@ -81,7 +82,6 @@ query Profile {
           type
         }
       }
-    }
   }
-
+}
 `;

@@ -13,6 +13,9 @@ import {BrowserRouter} from 'react-router-dom'
 import {theme} from './theme'
 import {NotificationProvider} from 'web3uikit'
 
+
+
+
 const { chains, provider, webSocketProvider } = configureChains(
   [chain.mainnet, chain.polygon],
   [publicProvider()],
@@ -30,12 +33,13 @@ const wagmiClient = createClient({
   })*/
 
 
-
+  
 const root = ReactDOM.createRoot(document.getElementById('root'));
+ 
 root.render(
   <ChakraProvider theme={theme}>
     <ApolloProvider client={apolloClient}>
-    <MoralisProvider appId="eREYueyBkzvQbb1oM77uaFHN9Jbak97b1k1oG5La" serverUrl="https://5msfvk6e2mxu.usemoralis.com:2053/server">
+    <MoralisProvider appId={process.env.REACT_APP_MORALIS_APP_ID} serverUrl={process.env.REACT_APP_MORALIS_SERVER_URL }>
     <WagmiConfig client={wagmiClient}>
      <BrowserRouter>
      <NotificationProvider>
