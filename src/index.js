@@ -10,14 +10,17 @@ import {apolloClient} from './GRAPHQL/Authentication/appoloClient'
 import { configureChains, chain } from 'wagmi'
 import { publicProvider } from 'wagmi/providers/public'
 import {BrowserRouter} from 'react-router-dom'
-//import {theme} from './theme'
-//import { theme } from './theme';
-import theme from './theme';
+import {StepsStyleConfig as Steps} from 'chakra-ui-steps'
+import {extendTheme} from '@chakra-ui/react'
 
 import {NotificationProvider} from 'web3uikit'
 
 
-
+const theme = extendTheme({
+  components: {
+    Steps,
+  },
+});
 
 const { chains, provider, webSocketProvider } = configureChains(
   [chain.mainnet, chain.polygon],
