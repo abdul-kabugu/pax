@@ -5,7 +5,7 @@ import {createPostTypedData} from '../GRAPHQL/Publications/createPostTypedDta'
 import { Box, Button, Center, Flex, Heading, IconButton, Input, InputGroup, Stack, Text, Textarea, useColorMode } from '@chakra-ui/react'
 import {useMoralis, useMoralisFile} from 'react-moralis'
 import {v4 as uuidv4} from 'uuid'
-import {uploadIpfs} from '../ipfs'
+
 import { RiVideoUploadLine } from 'react-icons/ri'
 import { BsUpload } from 'react-icons/bs'
 import { FaUbuntu } from 'react-icons/fa'
@@ -145,7 +145,7 @@ export default function CreatePost() {
          
          // UPLOAD_POST_METADATA TO IPFS
           const ipfRsult = await  PostMetada()
-          console.log(ipfRsult._ipfs)
+          //console.log(ipfRsult._ipfs)
            
            /*const ipfsResult = await uploadIpfs({
             version: '1.0.0',

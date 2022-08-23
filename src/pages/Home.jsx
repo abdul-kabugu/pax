@@ -83,7 +83,7 @@ export default function Home() {
         { autoFetch: true },
         
        )
-       console.log("this  is data from runees", runesData)
+      // console.log("this  is data from runees", runesData)
   const {data : recommendedProfiles, loading: isRecommendedProfilesLoading, error: isRecommendedProfilesError} = useQuery(RECOMMENDED_PROFILES)
    const {data, loading, error} = useQuery(EXPLORE_PUBLICATIONS)
        

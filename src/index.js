@@ -38,7 +38,7 @@ const wagmiClient = createClient({
     provider: getDefaultProvider(),
   })*/
 
-
+ // <WagmiConfig client={wagmiClient}>  </WagmiConfig>
   
 const root = ReactDOM.createRoot(document.getElementById('root'));
  
