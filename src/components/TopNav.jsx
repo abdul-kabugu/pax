@@ -43,7 +43,7 @@ const { colorMode, toggleColorMode } = useColorMode()
    // const lensProfileId = user.attributes?.lensProfileId
    // const lensProfileHandle = user.attributes?.lensHandle
 
-     console.log("the  user infos  from top nav", user)
+    // console.log("the  user infos  from top nav", user)
     // `signMessageAsync` lets us programatically request a message signature from the user's wallet
    const { signMessageAsync } = useSignMessage();
    const handleNotifications = useNotification();
@@ -61,7 +61,7 @@ const { colorMode, toggleColorMode } = useColorMode()
         const signature = await signText(challenge);
         // Get  access Token 
         const accessToken = await lensAuthenticate(account, signature);
-        console.log({accessToken});
+       // console.log({accessToken});
         // Store  access token  sessionStorage
         window.sessionStorage.setItem('accessToken', accessToken);
           setIsLensConnected(true)

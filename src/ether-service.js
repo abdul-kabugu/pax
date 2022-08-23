@@ -5,7 +5,7 @@ export const ethersProvider = new ethers.providers.Web3Provider(window.ethereum)
 
 
   export const signText = (text) => {
-    console.log("sign me ")
+   // console.log("sign me ")
    return ethersProvider.getSigner().signMessage(text);
  }
 

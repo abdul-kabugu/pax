@@ -32,7 +32,7 @@ export default function PostContainer({data}) {
              //console.log(data.attributes)
              setUserRunnes(runes)
              setDaysStreak(daysInArow)
-             console.log("this  is  user  runes", userRunnes)
+           //  console.log("this  is  user  runes", userRunnes)
             
   
           }
@@ -87,7 +87,7 @@ export default function PostContainer({data}) {
      }else if(accountToFollow?.followModule !== null){
       alert("you  need  to  pass follow  module")
      }
-     console.log("this is  account  to  follow  from postContainer", profileId )
+    // console.log("this is  account  to  follow  from postContainer", profileId )
   }
   
    

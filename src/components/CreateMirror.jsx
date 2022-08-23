@@ -23,11 +23,11 @@ export default function CreateMirror({postId, totalMirror ,  postCaption, creato
           const fetch = async () => {
             const data = await getUser()
             const {daysInArow, lastCollected, runes} = data.attributes;
-             console.log(data.attributes)
-             setUserRunnes(runes)
-             setDaysStreak(daysInArow)
-             console.log("this  is  user  runes", userRunnes)
-             console.log("last runees collected", lastCollected)
+           //  console.log(data.attributes)
+           //  setUserRunnes(runes)
+           //  setDaysStreak(daysInArow)
+            // console.log("this  is  user  runes", userRunnes)
+            // console.log("last runees collected", lastCollected)
   
           }
           fetch()
@@ -97,7 +97,7 @@ export default function CreateMirror({postId, totalMirror ,  postCaption, creato
                   deadline: typedData.value.deadline,
                 },
               });
-              console.log(tx.hash);
+             // console.log(tx.hash);
               // 0x64464dc0de5aac614a82dfd946fc0e17105ff6ed177b7d677ddb88ec772c52d3
               // you can look at how to know when its been indexed here: 
               //   - https://docs.lens.dev/docs/has-transaction-been-indexed

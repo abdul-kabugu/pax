@@ -23,7 +23,7 @@ export default function VideoSidebar({post, postComment,  postCollects,  postMir
     const [postToCollect, setpostToCollect] = useState()
   const handleOpen = (post) =>  {
     setPostOpen(post)
-    console.log(post)
+    //console.log(post)
     isOpen ? setIsOpen(false) : setIsOpen (true)
   }
      
@@ -37,7 +37,7 @@ export default function VideoSidebar({post, postComment,  postCollects,  postMir
       isCollectModal ?  setIsCollectModal(false) : setIsCollectModal(true)
      }
    
-   console.log("this is post to collect id", postToCollect)
+   //console.log("this is post to collect id", postToCollect)
     const handleClose = () => {
       setIsOpen(false)
     }

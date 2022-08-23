@@ -3,7 +3,7 @@ import {useQuery, gql} from '@apollo/client'
 import {EXPLORE_PUBLICATIONS} from '../GRAPHQL/Publications/expolorePublications'
 import {GET_PROFILE} from '../GRAPHQL/Profile/getProfile'
 //import {} from '../GRAPHQL/Publications/getPublications'
-import Video from '../components/Video'
+
 import '../global-style.css'
 import { Avatar, Box, Button, Center, Heading, Input, InputGroup, InputLeftElement, Modal, ModalBody, ModalCloseButton, ModalContent, ModalFooter, ModalHeader, ModalOverlay, Text,
 Skeleton, SkeletonText, SkeletonCircle
@@ -64,32 +64,11 @@ export default function Home() {
           user.unset("lensProfileId")
       }*/
 
-      // get and  set  users
-        useEffect(() => {
-           if(isAuthenticated){
-            const fetch = async () => {
-              const data = await getUser()
-              const {daysInArow, lastCollected, runes} = data.attributes;
-               console.log(data.attributes)
-               setUserRunnes(runes)
-               setDaysStreak(daysInArow)
-               console.log("this  is  user  runes", userRunnes)
-               console.log("last runees collected", lastCollected)
-               console.log("this  is  user  runes from home page", userRunnes)
-    
-            }
-            fetch()
-        }else {
-            setUserRunnes(0)
-        
-           }
-        }, [isAuthenticated, isInitialized, userRunnes ])
-        
-
+     
       //end of  setting
           
        //end  of  check  if  lens profile  is  connected
-      console.log("this  is  user  data infos", user?.attributes.lensProfileId)
+     // console.log("this  is  user  data infos", user?.attributes.lensProfileId)
       const toggleOpen = () =>  {
          isConnectProfile ? setisConnectProfile(false) : setisConnectProfile(true)
        
@@ -122,12 +101,12 @@ export default function Home() {
          const fetch = async () => {
            const data = await getUser()
            const {daysInArow, lastCollected, runes} = data.attributes;
-            console.log(data.attributes)
+           // console.log(data.attributes)
             setUserRunnes(runes)
             setDaysStreak(daysInArow)
-            console.log("this  is  user  runes", userRunnes)
+          /*  console.log("this  is  user  runes", userRunnes)
             console.log("last runees collected", lastCollected)
-            console.log("this  is  user  runes from home page", userRunnes)
+            console.log("this  is  user  runes from home page", userRunnes)*/
  
          }
          fetch()
@@ -197,7 +176,7 @@ export default function Home() {
      )
     }
   if (error) return `Error! ${error.message}`;
-  console.log("home  data ", data)
+  //console.log("home  data ", data)
   return (
     <div>
   <TopNav collectedTokens = {userRunnes}/>

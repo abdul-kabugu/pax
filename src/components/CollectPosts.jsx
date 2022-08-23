@@ -37,7 +37,8 @@ export default function CollectPosts({postId, collectModule, postCaption,  total
       deadline: typedData.value.deadline,
     },
   });
-  console.log(tx.hash);} catch (error) {
+  //console.log(tx.hash);
+} catch (error) {
     alert(error)
   }
     }

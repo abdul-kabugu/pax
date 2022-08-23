@@ -35,7 +35,7 @@ export default function CreatePost() {
   const {getUser} = useCollectors();
   const  thePrfId = user?.attributes.lensProfileId
   
-  console.log("this  is  the  id  of profile", thePrfId)
+ // console.log("this  is  the  id  of profile", thePrfId)
   //const  {lensProfileId} = user()
  // console.log("the console of  profile id  from DB ", lensProfileId)
 
@@ -44,11 +44,11 @@ export default function CreatePost() {
         const fetch = async () => {
           const data = await getUser()
           const {daysInArow, lastCollected, runes} = data.attributes;
-           console.log(data.attributes)
+          // console.log(data.attributes)
            setUserRunnes(runes)
            setDaysStreak(daysInArow)
-           console.log("this  is  user  runes", userRunnes)
-           console.log("last runees collected", lastCollected)
+          // console.log("this  is  user  runes", userRunnes)
+         //  console.log("last runees collected", lastCollected)
 
         }
         fetch()
@@ -201,7 +201,7 @@ export default function CreatePost() {
               deadline: typedData.value.deadline,
             },
           });
-          console.log(tx.hash);
+          //console.log(tx.hash);
           // 0x64464dc0de5aac614a82dfd946fc0e17105ff6ed177b7d677ddb88ec772c52d3
           // you can look at how to know when its been indexed here: 
           //   - https://docs.lens.dev/docs/has-transaction-been-indexed

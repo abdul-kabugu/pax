@@ -26,7 +26,7 @@ export default function UserPage() {
     
    )
 
-   console.log("the information of runees from user page", runesData)
+   //console.log("the information of runees from user page", runesData)
 
     const {data : recommendedProfiles, loading: isRecommendedProfilesLoading, error: isRecommendedProfilesError} = useQuery(RECOMMENDED_PROFILES)
     const {data: userProfile, loading : isUserProfileLoading, error: isUserProfileError} = useQuery(GET_USER_PROFILES, {
@@ -45,7 +45,7 @@ export default function UserPage() {
         }
       }
      })
-      console.log(userPubs)
+      //console.log(userPubs)
  
       // isRecommendedProfilesLoading  ||  isUserProfileLoading
 

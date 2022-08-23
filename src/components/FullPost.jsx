@@ -10,7 +10,7 @@ export default function FullPost({postId}) {
     getPublications(postId).then(setData);
   }, [data]);
 
-  console.log("this  is  is  data  from  data  responsese  of full post", data)
+  //console.log("this  is  is  data  from  data  responsese  of full post", data)
   return (
     <div>
        
