@@ -99,7 +99,7 @@ export default function CreatePost() {
        return result
     }
 
-    const handleNotifications = useNotification(); 
+    //const handleNotifications = useNotification(); 
       //Initialize  post  metadata
       const PostMetada = async () => {
         const metadata = {

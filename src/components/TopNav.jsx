@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react'
+import React, {useState} from 'react'
 import {lensAuthenticate, generateChallenge}  from '../GRAPHQL/Authentication/appoloClient'
 import { useAccount, useSignMessage } from 'wagmi';
 import {MoralisContext, useMoralis, useMoralisQuery} from 'react-moralis'
@@ -46,7 +46,7 @@ const { colorMode, toggleColorMode } = useColorMode()
     // console.log("the  user infos  from top nav", user)
     // `signMessageAsync` lets us programatically request a message signature from the user's wallet
    const { signMessageAsync } = useSignMessage();
-   const handleNotifications = useNotification();
+   //const handleNotifications = useNotification();
 
      //  Sign-in function
     const signIn = async () => {
@@ -69,14 +69,14 @@ const { colorMode, toggleColorMode } = useColorMode()
         console.error(error);
        
 
-        handleNotifications({
+      /*  handleNotifications({
           type:"error",
           title:"Auth Error",
           message: "connect your  wallet  and  sign in with lens to upload",
           
           position: 'topR',
   
-        })
+        })*/
       }
     };
       
@@ -145,16 +145,18 @@ const { colorMode, toggleColorMode } = useColorMode()
           onCloseProfileSide()
         } else if(LENS_ACCESS_TOKEN == null ){
           onCloseProfileSide()
-          handleNotifications({
+        /*  handleNotifications({
             type:"error",
             title:"Auth Error",
             message: "connect your  wallet  and  sign in with lens to upload",
             
             position: 'topR',
     
-          })
+          })*/
+        
+        alert("please connect your wallet  and  sign-in with lens to continue")
         }
-     }
+      }
 
     
     return (

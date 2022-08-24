@@ -48,10 +48,12 @@ root.render(
     <MoralisProvider appId="eREYueyBkzvQbb1oM77uaFHN9Jbak97b1k1oG5La" serverUrl="https://5msfvk6e2mxu.usemoralis.com:2053/server">
     <WagmiConfig client={wagmiClient}>
      <BrowserRouter>
-     <NotificationProvider>
+   {/* <NotificationProvider>*/}
        <App />
-       </NotificationProvider>
+      {/*} </NotificationProvider>*/}
+     
        </BrowserRouter>
+      
        </WagmiConfig>
       </MoralisProvider>
       </ApolloProvider>
